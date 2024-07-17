@@ -1,3 +1,12 @@
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+#include "cheats.h"
+
+// Your existing code...
+
+
 #include "cheats.h"
 #include <MinHook.h>
 #include "ui.h"
