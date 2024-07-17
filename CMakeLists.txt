@@ -33,3 +33,7 @@ add_library(GeoBoost SHARED ${SOURCES} ${IMGUI_SOURCES} ${MINHOOK_SOURCES})
 
 # Link libraries
 target_link_libraries(GeoBoost d3d9 d3dx9)
+
+# Set compiler flags for cross-compilation
+set(CMAKE_CXX_COMPILER x86_64-w64-mingw32-g++)
+set(CMAKE_C_COMPILER x86_64-w64-mingw32-gcc)
