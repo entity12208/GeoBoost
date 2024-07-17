@@ -1,3 +1,12 @@
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+#include <iostream>
+
+// Your existing code...
+
+
 #include <Windows.h>
 #include "cheats.h"
 #include "ui.h"
