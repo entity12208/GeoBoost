@@ -11,13 +11,25 @@ include_directories(include/minhook)
 # Add source files
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
+# Add ImGui source files
+set(IMGUI_SOURCES
+    include/imgui/imgui.cpp
+    include/imgui/imgui_draw.cpp
+    include/imgui/imgui_tables.cpp
+    include/imgui/imgui_widgets.cpp
+    include/imgui/backends/imgui_impl_dx9.cpp
+    include/imgui/backends/imgui_impl_win32.cpp
+)
+
+# Add MinHook source files
+set(MINHOOK_SOURCES
+    src/minhook/buffer.c
+    src/minhook/hook.c
+    src/minhook/trampoline.c
+)
+
 # Add library
-add_library(GeoBoost SHARED ${SOURCES})
+add_library(GeoBoost SHARED ${SOURCES} ${IMGUI_SOURCES} ${MINHOOK_SOURCES})
 
 # Link libraries
-find_library(MINHOOK_LIBRARY NAMES libMinHook.a PATHS libs)
-target_link_libraries(GeoBoost ${MINHOOK_LIBRARY} d3d9 d3dx9)
-
-# Add ImGui source files
-add_subdirectory(include/imgui)
-target_link_libraries(GeoBoost imgui)
+target_link_libraries(GeoBoost d3d9 d3dx9)
