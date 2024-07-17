@@ -1,3 +1,10 @@
+#ifndef MINHOOK_H
+#define MINHOOK_H
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 /*
  *  MinHook - The Minimalistic API Hooking Library for x64/x86
  *  Copyright (C) 2009-2017 Tsuda Kageyu.
@@ -179,6 +186,8 @@ extern "C" {
 
     // Translates the MH_STATUS to its name as a string.
     const char * WINAPI MH_StatusToString(MH_STATUS status);
+
+#endif
 
 #ifdef __cplusplus
 }
